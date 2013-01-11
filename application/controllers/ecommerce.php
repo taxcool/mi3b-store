@@ -6,10 +6,16 @@ class Ecommerce extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->helper(array('form', 'url'));
+		$this->load->library('email');
 	}
 
 	public function index()
 	{
+		$this->load->model('produk_m');
+		$data['slider'] = $this->produk_m->get_slider();
+		$data['all'] = $this->produk_m->getAll();
+		$data['terkenal'] = $this->produk_m->get_terkenal();
+		$this->load->view('index', $data);
 		$this->load->view('index');
 	}
 	
@@ -105,6 +111,21 @@ class Ecommerce extends CI_Controller {
 	}
 	function list_order(){
 	$this->load->view('admin/list_order');
+	}
+	
+	function kirim_Email(){
+		
+		$this->email->from('mmtaxcool9@gmail.com', 'Miftah');
+		$this->email->to('peni.andriana@ymail.com'); 
+		$this->email->cc('mmtaxcool9@gmail.com'); 
+		$this->email->bcc('mmtaxcool9@gmail.com'); 
+
+		$this->email->subject('Email Test');
+		$this->email->message('Testing the email class.');	
+
+		$this->email->send();
+
+		echo $this->email->print_debugger();
 	}
 	
 }

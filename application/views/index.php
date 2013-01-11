@@ -31,6 +31,14 @@ ddsmoothmenu.init({
 </script>
 
 <link rel="stylesheet" type="text/css" href="<?=base_url();?>style/css/styles.css" />
+<!-- start of link nivo -->
+<link rel="stylesheet" href="<?=base_url();?>style/themes/default/default.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="<?=base_url();?>style/themes/light/light.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="<?=base_url();?>style/themes/dark/dark.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="<?=base_url();?>style/themes/bar/bar.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="<?=base_url();?>style/css/nivo-slider.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="<?=base_url();?>style/css/style_nivo.css" type="text/css" media="screen" />
+ <!-- end of link nivo -->
 <script language="javascript" type="text/javascript" src="<?=base_url();?>style/scripts/mootools-1.2.1-core.js"></script>
 <script language="javascript" type="text/javascript" src="<?=base_url();?>style/scripts/mootools-1.2-more.js"></script>
 <script language="javascript" type="text/javascript" src="<?=base_url();?>style/scripts/slideitmoo-1.1.js"></script>
@@ -74,41 +82,70 @@ ddsmoothmenu.init({
         </ul>
         <br style="clear: left" />
     </div> <!-- end of templatemo_menu -->
+	
+	
     
-    <div id="templatemo_middle">
-    	<img src="<?=base_url();?>/style/images/templatemo_image_01.png" alt="Image 01" />
-    	<h1>Introducing Web Store</h1>
-        <p><a href="#" target="_parent">Web Store</a> is a free css template for your personal or commercial websites. Feel free to download, edit and use this template for any purpose.</p>
-        <a href="#" class="buy_now">Browse All Products</a>
-    </div> <!-- END of middle -->
+     <div id="templatemo_middle">
+	 <!------------------------------------------------------- slider ------------------------------------------------------------------------------------------>
+    	<div id="wrapper">
+    
+        <div class="slider-wrapper theme-default">
+        
+            <?php foreach($slider as $row): ?>
+            <div id="slider" class="nivoSlider">
+                <img src="<?=base_url().$row->gambar;?>" width="150" height="100" data-thumb="<?=base_url().$row->gambar;?>" width="150" height="100" alt="" title="<?=$row->deskripsi;?>" width="300" height="200"  />
+                
+            </div>
+            <?php endforeach;?>
+            
+        </div>
+        
+
+    </div>
+    <script type="text/javascript" src="<?=base_url();?>style/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="<?=base_url();?>style/js/jquery.nivo.slider.js"></script>
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('#slider').nivoSlider();
+    });
+    </script>
+    </div>
+	<!----------------------------------------------------------------------------- end of slider ------------------------------------------------------------------------------>
+	<!-- END of middle -->
     
     <div id="templatemo_main_top"></div>
     <div id="templatemo_main">
-    	<?php include "user/user_template/slider.php";?>       
+    	       
         <?php include "user/user_template/sidebar.php";?>
         
         <div id="content">
-        	<div class="col col_14 product_gallery">
-            	<img src="<?=base_url();?>/style/images/product/01.jpg" alt="Product 01" />
-                <h3>Ut eu feugiat</h3>
-                <p class="product_price">$ 100</p>
+        	<!-------------------------------------------------------------- Produk terbaru ----------------------------------------------------------------------->
+        	<h2>Produk Terbaru</h2>
+          <?php foreach($all as $row): ?>
+        	<div class="col col_14 product_gallery no_margin_right">
+            	
+            	<img src="<?=base_url().$row->gambar;?>" width="150" height="100"/>
+                <h3><?=$row->nama_produk;?></h3>
+                <p class="product_price"><?=$row->harga;?></p>
                 <?php echo anchor('ecommerce/cart','Add to Cart',array('title'=>'Cart','class'=>'add_to_cart'));?>
 				<?php echo anchor('ecommerce/detail','Detail',array('title'=>'Detail','class'=>'detail'));?>
-            </div>        	
-            <div class="col col_14 product_gallery">
-            	<img src="<?=base_url();?>/style/images/product/02.jpg" alt="Product 02" />
-                <h3>Curabitur et turpis</h3>
-                <p class="product_price">$ 200</p>
-                <?php echo anchor('ecommerce/cart','Add to Cart',array('title'=>'Cart','class'=>'add_to_cart'));?>
-				<?php echo anchor('ecommerce/detail','Detail',array('title'=>'Detail','class'=>'detail'));?>
-            </div>        	
-            <div class="col col_14 product_gallery no_margin_right">
-            	<img src="<?=base_url();?>/style/images/product/03.jpg" alt="Product 03" />
-                <h3>Mauris consectetur</h3>
-                <p class="product_price">$ 120</p>
-                <?php echo anchor('ecommerce/cart','Add to Cart',array('title'=>'Cart','class'=>'add_to_cart'));?>
-				<?php echo anchor('ecommerce/detail','Detail',array('title'=>'Detail','class'=>'detail'));?>
-            </div>        	
+               </div>  
+                <?php endforeach; ?>
+			 <!------------------------------------------------------------------ end of Produk terbaru --------------------------------------------------------------->
+           <!------------------------------------------------------------------Produk terkenal ----------------------------------------------------------------------------->      
+                <h2>Produk Terkenal</h2>
+          <?php foreach($terkenal as $row): ?>
+        	<div class="col col_14 product_gallery no_margin_right">
+            	
+            	<img src="<?=base_url().$row->gambar;?>" width="150" height="100"/>
+                <h3><?=$row->nama_produk;?></h3>
+                <p class="product_price"><?=$row->harga;?></p>
+                <?php echo anchor('ecommerce/cart2','Add to Cart',array('title'=>'Cart','class'=>'add_to_cart'));?>
+				<?php echo anchor('ecommerce/detail2','Detail',array('title'=>'Detail','class'=>'detail'));?>
+               </div>  
+                <?php endforeach; ?>
+                  	
+        <!------------------------------------------------------------------ end of Produk terkenal ----------------------------------------------------------------------------->
                 	
         </div> <!-- END of content -->
         <div class="cleaner"></div>

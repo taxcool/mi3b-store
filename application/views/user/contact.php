@@ -65,7 +65,7 @@ ddsmoothmenu.init({
             <li><?php echo anchor('ecommerce/produk', 'Produk' );?></li>
             <li><?php echo anchor('ecommerce/news', 'News');?></li>
             <li><?php echo anchor('ecommerce/forum', 'Forum');?></li>
-            <li><?php echo anchor('ecommerce/caratransaksi', 'Cara Transaksi');?></li>
+            <li><?php echo anchor('ecommerce/caratransaksi', 'How to Order');?></li>
             <li><?php echo anchor('ecommerce/contact', 'Contact Us', array('class'=>'selected'));?></li>
 			<li><?php echo anchor('ecommerce/admin', 'Admin');?></li>
         </ul>
@@ -82,9 +82,9 @@ ddsmoothmenu.init({
         	<h2>Contact Information</h2>
 			
             <div class="col col_13">
-            <p>Etiam eget leo nisl. Morbi magna enim, lobortis vitae condimentum. Validate <a href="http://validator.w3.org/check?uri=referer" rel="nofollow">XHTML</a> &amp; <a href="http://jigsaw.w3.org/css-validator/check/referer" rel="nofollow">CSS</a>.</p>
+            <p>Silahkan masukkan komentar anda </p>
             <div id="contact_form">
-               <form method="post" name="contact" action="#">
+               <form method="post" name="contact" action="kirim_Email">
                     
                     <label for="author">Name:</label> <input type="text" id="author" name="author" class="required input_field" />
                     <div class="cleaner h10"></div>
@@ -125,8 +125,7 @@ ddsmoothmenu.init({
         
         <div class="cleaner h30"></div>
         
-        <iframe width="660" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=new+york+central+park&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=60.158465,135.263672&amp;vpsrc=6&amp;ie=UTF8&amp;hq=&amp;hnear=Central+Park,+New+York&amp;t=m&amp;ll=40.769606,-73.973372&amp;spn=0.014284,0.033023&amp;z=14&amp;output=embed"></iframe>
-            
+          <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=id&amp;geocode=&amp;q=toko+hartono+malang&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=34.259599,86.572266&amp;ie=UTF8&amp;hq=toko+hartono&amp;hnear=Malang,+Jawa+Timur,+Indonesia&amp;t=m&amp;ll=-7.674441,112.669224&amp;spn=0.737886,0.144845&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=id&amp;geocode=&amp;q=toko+hartono+malang&amp;aq=&amp;sll=37.0625,-95.677068&amp;sspn=34.259599,86.572266&amp;ie=UTF8&amp;hq=toko+hartono&amp;hnear=Malang,+Jawa+Timur,+Indonesia&amp;t=m&amp;ll=-7.674441,112.669224&amp;spn=0.737886,0.144845" style="color:#0000FF;text-align:left">Lihat Peta Lebih Besar</a></small>    
         </div> <!-- END of content -->
         <div class="cleaner"></div>
     </div> <!-- END of main -->
